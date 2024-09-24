@@ -1,0 +1,17 @@
+15:11:53 **** Incremental Build of configuration Debug for project 15_FreeRTOS_BinSem_vs_Mutex ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4A6xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "15_FreeRTOS_BinSem_vs_Mutex.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/dnk121/Shibani/WORKSPACE5/15_FreeRTOS_BinSem_vs_Mutex/STM32L4A6ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="15_FreeRTOS_BinSem_vs_Mutex.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 15_FreeRTOS_BinSem_vs_Mutex.elf
+ 
+arm-none-eabi-size  15_FreeRTOS_BinSem_vs_Mutex.elf 
+arm-none-eabi-objdump -h -S 15_FreeRTOS_BinSem_vs_Mutex.elf  > "15_FreeRTOS_BinSem_vs_Mutex.list"
+   text	   data	    bss	    dec	    hex	filename
+  32176	    108	   8700	  40984	   a018	15_FreeRTOS_BinSem_vs_Mutex.elf
+Finished building: default.size.stdout
+ 
+Finished building: 15_FreeRTOS_BinSem_vs_Mutex.list
+ 
+
+15:11:54 Build Finished. 0 errors, 0 warnings. (took 1s.24ms)
+

@@ -1,0 +1,10 @@
+../Core/Src/main.c:106:5:main	8	static
+../Core/Src/main.c:200:6:SystemClock_Config	96	static
+../Core/Src/main.c:250:13:MX_LPUART1_UART_Init	8	static
+../Core/Src/main.c:284:13:MX_GPIO_Init	16	static
+../Core/Src/main.c:309:6:Start_Producer_Task	16	static
+../Core/Src/main.c:329:6:Start_Consumer_Task_1	16	static
+../Core/Src/main.c:352:6:Start_Consumer_Task_2	16	static
+../Core/Src/main.c:375:6:Start_Consumer_Task_3	16	static
+../Core/Src/main.c:399:6:HAL_TIM_PeriodElapsedCallback	16	static
+../Core/Src/main.c:416:6:Error_Handler	4	static,ignoring_inline_asm

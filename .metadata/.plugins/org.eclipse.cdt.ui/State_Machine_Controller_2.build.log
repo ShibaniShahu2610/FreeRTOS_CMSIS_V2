@@ -1,0 +1,17 @@
+11:42:18 **** Incremental Build of configuration Debug for project State_Machine_Controller_2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/BSP/Component/Utilization/Slave_Metadata/slave_metadata.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4A6xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I"/home/dnk121/Shibani/WORKSPACE5/State_Machine_Controller_2/Drivers/BSP/Component/Application/Slave_Operational" -I"/home/dnk121/Shibani/WORKSPACE5/State_Machine_Controller_2/Drivers/BSP/Component/Application/Slave_StateMachine" -I"/home/dnk121/Shibani/WORKSPACE5/State_Machine_Controller_2/Drivers/BSP/Component/Device/Slave_Charger" -I"/home/dnk121/Shibani/WORKSPACE5/State_Machine_Controller_2/Drivers/BSP/Component/Device/Slave_Dimmer" -I"/home/dnk121/Shibani/WORKSPACE5/State_Machine_Controller_2/Drivers/BSP/Component/Device/Slave_ExhaustFan" -I"/home/dnk121/Shibani/WORKSPACE5/State_Machine_Controller_2/Drivers/BSP/Component/Device/Slave_Light" -I"/home/dnk121/Shibani/WORKSPACE5/State_Machine_Controller_2/Drivers/BSP/Component/I2C_Communication/Slave_App" -I"/home/dnk121/Shibani/WORKSPACE5/State_Machine_Controller_2/Drivers/BSP/Component/I2C_Communication/Slave_Commision" -I"/home/dnk121/Shibani/WORKSPACE5/State_Machine_Controller_2/Drivers/BSP/Component/Utilization/Slave_ErrorCode" -I"/home/dnk121/Shibani/WORKSPACE5/State_Machine_Controller_2/Drivers/BSP/Component/Utilization/Slave_Flash" -I"/home/dnk121/Shibani/WORKSPACE5/State_Machine_Controller_2/Drivers/BSP/Component/Utilization/Slave_Metadata" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/BSP/Component/Utilization/Slave_Metadata/slave_metadata.d" -MT"Drivers/BSP/Component/Utilization/Slave_Metadata/slave_metadata.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/BSP/Component/Utilization/Slave_Metadata/slave_metadata.o"
+arm-none-eabi-gcc -o "State_Machine_Controller_2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/dnk121/Shibani/WORKSPACE5/State_Machine_Controller_2/STM32L4A6ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="State_Machine_Controller_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: State_Machine_Controller_2.elf
+ 
+arm-none-eabi-size  State_Machine_Controller_2.elf 
+arm-none-eabi-objdump -h -S State_Machine_Controller_2.elf  > "State_Machine_Controller_2.list"
+   text	   data	    bss	    dec	    hex	filename
+  40160	    212	   2484	  42856	   a768	State_Machine_Controller_2.elf
+Finished building: default.size.stdout
+ 
+Finished building: State_Machine_Controller_2.list
+ 
+
+11:42:19 Build Finished. 0 errors, 0 warnings. (took 1s.70ms)
+
