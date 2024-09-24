@@ -296,18 +296,43 @@ static void MX_GPIO_Init(void)
 /* USER CODE END Header_Start_Sender_Task_1 */
 void Start_Sender_Task_1(void *argument)
 {
-	  /* USER CODE BEGIN 5 */
-		uint8_t x = 1;
-	  /* Infinite loop */
-	  for(;;)
-	  {
-		printf("S1\r\n");
-		osMessageQueuePut(Queue_1Handle, &x, 0, 500);
-		x++;
-	    osDelay(2000);
-	  }
-	  /* USER CODE END 5 */
+  /* USER CODE BEGIN 5 */
+  uint8_t count = 1;
+  /* Infinite loop */
+  for(;;)
+  {
+    printf("Sender Task 1\r\n");
+
+    // Try to put a message in the queue
+    osStatus_t status = osMessageQueuePut(Queue_1Handle, &count, 0, 500);
+
+    // Check if the queue is full
+    if(status == osErrorResource)
+    {
+      printf("Queue is full.\r\n");
+    }
+    else
+    {
+      count++;
+    }
+
+    // Terminate Sender_Task_2 if count reaches 21
+    if(count == 21)
+    {
+      osThreadTerminate(Sender_Task_2Handle);
+    }
+
+    // Terminate Sender_Task_1 if count reaches 41
+    if(count == 41)
+    {
+      osThreadTerminate(Sender_Task_1Handle);
+    }
+
+    osDelay(1000);
+  }
+  /* USER CODE END 5 */
 }
+
 
 /* USER CODE BEGIN Header_Start_Sender_Task_2 */
 /**
@@ -319,20 +344,24 @@ void Start_Sender_Task_1(void *argument)
 void Start_Sender_Task_2(void *argument)
 {
 	  /* USER CODE BEGIN Start_Sender_Task_2 */
-		uint8_t y = 51;
+		uint8_t count2 = 21;
 	  /* Infinite loop */
 	  for(;;)
 	  {
-		    printf("S2\r\n");
-		    if (osMessageQueuePut(Queue_1Handle, &y, 0, 500) != osOK)
+		    printf("Sender Task 2\r\n");
+		    // Try to put a message in the queue
+		    osStatus_t status = osMessageQueuePut(Queue_1Handle, &count2, 0, 500);
+
+		    // Check if the queue is full
+		    if(status == osErrorResource)
 		    {
-		      printf("Queue full, unable to send message.\r\n");
+		      printf("Queue is full.\r\n");
 		    }
 		    else
 		    {
-		      y++;
+		      count2++;
 		    }
-		    osDelay(2000);
+		    osDelay(1000);
 	  }
 
 	  /* USER CODE END Start_Sender_Task_2 */
@@ -352,10 +381,10 @@ void Start_Receiver_Task(void *argument)
 	  /* Infinite loop */
 	  for(;;)
 	  {
-		printf("R\r\n");
+
 		if(osMessageQueueGet(Queue_1Handle, &res, NULL, 500) == osOK)
 		{
-		printf("R-data : %d\r\n",res);
+			printf("Receiver Task -----> Received Data : %d\r\n",res);
 		}
 		osDelay(1000);
 	  }

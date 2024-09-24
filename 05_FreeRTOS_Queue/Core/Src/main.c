@@ -299,15 +299,15 @@ static void MX_GPIO_Init(void)
 void Start_Sender_Task(void *argument)
 {
 	  /* USER CODE BEGIN 5 */
-		uint8_t x= 9;
+		uint8_t count= 9;
 	  /* Infinite loop */
 	  for(;;)
 	  {
-		printf("S\r\n");
-		osMessageQueuePut(Queue_1Handle, &x, 0, 200);
-	    x--;
-	    if(x == 0)
-	    	x=9;
+		printf("Sender Task\r\n");
+		osMessageQueuePut(Queue_1Handle, &count, 0, 200);
+		count--;
+	    if(count == 0)
+	    	count = 9;
 	    osDelay(1000);
 	  }
 	  /* USER CODE END 5 */
@@ -327,9 +327,8 @@ void Start_Receiver_Task(void *argument)
 	  /* Infinite loop */
 	  for(;;)
 	  {
-		printf("R\r\n");
 		r_state = osMessageQueueGet(Queue_1Handle, &res, NULL, 1000);
-	    printf("%d\r\n", res);
+		printf("Receiver Task ------> count = %d\r\n", res);
 	  }
 	  /* USER CODE END Start_Receiver_Task */
 }
