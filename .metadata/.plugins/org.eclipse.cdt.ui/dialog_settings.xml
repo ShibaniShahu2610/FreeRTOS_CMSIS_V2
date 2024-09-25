@@ -30,4 +30,8 @@
 		<item key="width" value="625"/>
 		<item key="height" value="720"/>
 	</section>
+	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration.internal">
+		<item key="size.width" value="513"/>
+		<item key="size.height" value="180"/>
+	</section>
 </section>

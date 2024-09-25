@@ -386,6 +386,7 @@ void Start_Idle_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
+	/* This task will work when other 2 task are in blocking state */
     HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
 	/* Block Task for 500 ms */
     osDelay(500);

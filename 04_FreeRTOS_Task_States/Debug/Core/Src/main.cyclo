@@ -5,5 +5,5 @@
 ../Core/Src/main.c:315:6:Start_Default_Task	1
 ../Core/Src/main.c:336:6:Start_Task_2	5
 ../Core/Src/main.c:383:6:Start_Idle_Task	1
-../Core/Src/main.c:404:6:HAL_TIM_PeriodElapsedCallback	2
-../Core/Src/main.c:421:6:Error_Handler	1
+../Core/Src/main.c:405:6:HAL_TIM_PeriodElapsedCallback	2
+../Core/Src/main.c:422:6:Error_Handler	1
